@@ -39,3 +39,5 @@ pipeline:
                     shell: Powershell
                     command: write-host "Hello world"
                   description: powershell command
+  delegateSelectors:
+    - docker-delegate
