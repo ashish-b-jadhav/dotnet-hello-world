@@ -1,0 +1,41 @@
+pipeline:
+  name: dot-net
+  identifier: dotnet
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: github
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          caching:
+            enabled: true
+            override: true
+          buildIntelligence:
+            enabled: true
+          infrastructure:
+            type: VM
+            spec:
+              type: Pool
+              spec:
+                poolName: docker-delegate
+                os: Windows
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Powershell
+                    command: write-host "Hello world"
+                  description: powershell command
