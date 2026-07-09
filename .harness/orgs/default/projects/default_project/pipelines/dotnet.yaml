@@ -27,7 +27,7 @@ pipeline:
             spec:
               type: Pool
               spec:
-                poolName: docker-delegate
+                poolName: ubuntu-azure
                 os: Windows
           execution:
             steps:
